@@ -1,0 +1,36 @@
+@import "colors.scss";
+
+body,html{
+  margin:0;
+  width:100%;
+}
+html{
+    background-color: $white;
+}
+
+.app_body {
+  max-width: 300 px;
+  background-color: $white;
+
+}
+
+.user {
+  float: right;
+  width:10%;
+}
+
+.codenames {
+  display: flex;
+  flex-wrap: wrap;
+  width:1000px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,0 +1,23 @@
+@import "colors.scss";
+ 
+ .button, .seed {
+    user-select: none;
+    background-color: $brown;
+    border: none;
+    color:$white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    height : 20px;
+    margin-top:60px;
+    margin-right:10px;
+    transition-duration: 0.4s;
+  }
+
+.button:hover {
+    background-color: $brown-light; 
+  
+  }
