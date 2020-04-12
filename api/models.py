@@ -55,6 +55,6 @@ class Card(db.Model):
         return f"Card('{self.id}', '{self.game_id}', '{self.word_id}', '{self.feedback}')"
     
     def as_dict(self):
-        return {'card' : self.text.wordname, 'feedback' : self.feedback}
+        return {'card' : self.text.wordname, 'feedback' : self.feedback, 'team' : self.team}
 
     
