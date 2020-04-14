@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import './Card.scss'
 
-const Card = ({ card, feedback, index,team, onClick }) => (
-    <div className={`card ${feedback}`} onClick={()=>onClick(index,team)}>
+const Card = ({ card, feedback, index, onClick }) => (
+    <div className={`card ${feedback}`} onClick={()=>onClick(index)}>
       <span className="symbol">
         {card}
       </span>
@@ -15,13 +15,12 @@ const Card = ({ card, feedback, index,team, onClick }) => (
     feedback: PropTypes.oneOf([
       'hidden',
       'visible',
-      'redTeam',
-      'blueTeam',
-      'blackTeam',
-      'whiteTeam'
+      'red',
+      'blue',
+      'black',
+      'white'
     ]).isRequired,
     index: PropTypes.number.isRequired,
-    team: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
   }
 

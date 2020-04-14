@@ -1,18 +1,13 @@
 @import "colors.scss";
 
-.codenames > .card {
-    display: inline-block;
-    user-select: none;
+#codenames .card {
     background-color: $hidden; 
     border: 1px solid $brown;
     color: $text;
-    padding: 5px 5px;
-    flex:180px;
-    height : 60px;
-    line-height: 60px;
-    margin: 4px;
+    height:60px;
+    line-height:60px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: 4px;
     text-decoration: none; 
     font-size: 13px;
     font-weight: bold;
@@ -21,21 +16,22 @@
   
 }
 
-.codenames > .card:hover {
+#codenames .hidden:hover {
   background-color: $hidden-light; /* Green */
 
 }
 
-.codenames > .card.redTeam {
+#codenames .red {
   background: $red;
 }
-.codenames > .card.blueTeam {
+
+#codenames .blue {
   background: $blue;
 }
-.codenames > .card.whiteTeam {
+#codenames .white {
   background: $white;
 }
-.codenames > .card.blackTeam {
+#codenames .black {
   color: $white;
   background: $black;
 

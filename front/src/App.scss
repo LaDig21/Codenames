@@ -3,28 +3,25 @@
 body,html{
   margin:0;
   width:100%;
+  min-width:600px;
 }
-html{
-    background-color: $white;
+
+.top {
+  margin-top : 16px;
 }
 
 .app_body {
   max-width: 300 px;
-  background-color: $white;
-
 }
 
-.user {
-  float: right;
-  width:10%;
-}
 
 .codenames {
   display: flex;
   flex-wrap: wrap;
-  width:1000px;
+  padding:32px;
   justify-content: center;
   align-items: center;
+  
 
 }
 
@@ -32,5 +29,6 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom:16px;
 }
 
