@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'                
+import React from 'react'            
 import {Button, Icon} from 'semantic-ui-react'
 import './App.scss'    
 

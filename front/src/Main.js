@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 
 import './App.scss'
 import Card from './Card'
-import Header from './Header'
+import TopScore from './TopScore'
 import Foot from './Foot'
 
 
@@ -89,7 +89,7 @@ const Main = () => {
         <div className="app_body">           
             {game.feedback.length > 1 
             ? <div>
-                <Header game={game}/>
+                <TopScore game={game}/>
                 
                 <div className="codenames" id="codenames">
                     

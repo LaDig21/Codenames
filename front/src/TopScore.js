@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Grid, Label} from 'semantic-ui-react'
 import './App.scss'               
                 
-const Header = ({game}) => (                
+const TopScore = ({game}) => (                
 <div className = 'top'>
     <Grid columns={3} centered stretched textAlign='center'>                
         <Grid.Column textAlign='center'>
@@ -31,4 +31,4 @@ const Header = ({game}) => (
 )
 
 
-export default Header
+export default TopScore
