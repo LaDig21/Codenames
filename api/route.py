@@ -49,18 +49,19 @@ def create_round():
     db.session.commit()
     return jsonify(game.as_dict()), 200
 
-@app.route('/create_game/<string:seed>')
-def create_game(seed):
+@app.route('/create_game')
+def create_game():
+    seed = random_string()
     res = Game.query.filter_by(gamename=seed).first()
-    if res:
-        return str(res), 403
+    while res:
+        seed = random_string()
     game, word_list = new_game(seed)
     db.session.add(game)
     db.session.commit()
     card = new_card(seed, game, word_list)
     db.session.bulk_save_objects(card)   
     db.session.commit()
-    return '', 200
+    return jsonify({'gamename' : game.gamename}), 200
 
 @app.route('/<string:seed>')
 def get_cards(seed):
@@ -68,6 +69,6 @@ def get_cards(seed):
     if res:
         return jsonify(res.as_dict()), 200
     else:
-        return 'KO', 404
+        return jsonify({'KO':1}), 404
 
 

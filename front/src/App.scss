@@ -6,14 +6,31 @@ body,html{
   min-width:600px;
 }
 
-.top {
-  margin-top : 16px;
+.header {
+  width : 100%;
+  text-align : center;
+  height : 60px;
+}
+#header .icon {
+  margin: 0 .75em 0 0.75em;
 }
 
 .app_body {
   max-width: 300 px;
 }
 
+.gameform {
+  margin : 16px auto;
+  width : 200px;
+}
+
+#gameform .inputGame{
+    width: 110px;
+}
+
+#gameform .submitGame{
+  width: 10px;
+}
 
 .codenames {
   display: flex;
