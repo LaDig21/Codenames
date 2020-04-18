@@ -4,19 +4,29 @@
 Python server using Flask and SQL Alchemy
 
 How to install it (Python > v3.3 / Windows):
+
 1 - Create and activate virtual environnement :
+
 python -m venv /path/to/new/virtual/environment
+
 /path/to/new/virtual/environment/Scripts/activate.bat
 
+
 2 - Install dependencies
+
 pip install -r requirements.txt
 
 3 - Create DB with your own words (optionnal, site.db is already created)
+
 delete site.db
+
 Input word list in data/word.py
+
 Run create_db.py
 
+
 4 - Run the app
+
 python run.py
 
 ## Front end
