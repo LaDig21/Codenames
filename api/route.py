@@ -55,6 +55,7 @@ def create_game():
     res = Game.query.filter_by(gamename=seed).first()
     while res:
         seed = random_string()
+        res = Game.query.filter_by(gamename=seed).first()
     game, word_list = new_game(seed)
     db.session.add(game)
     db.session.commit()
