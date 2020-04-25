@@ -23,7 +23,7 @@ $ pip install -r requirements.txt
  * Input word list in data/word.py
  * Run create_db.py
 ```bash
-python create_db.py
+$ python create_db.py
 ```
 
 4. Run the app
