@@ -1,6 +1,6 @@
 from datetime import datetime
 import random
-from config import db
+from server import db
 
 class Word(db.Model):
     id = db.Column(db.Integer, primary_key=True)

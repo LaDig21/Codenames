@@ -1,5 +1,5 @@
-from models import Game, Word, Card
-from services.random_services import random_turn
+from ..models import Game, Word, Card
+from .random_services import random_turn
 import random
 
 def new_game(seed):

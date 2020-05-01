@@ -1,9 +1,9 @@
 from flask import url_for, redirect, jsonify, request
-from config import app, db
-from models import Word, Game, Card
+from server import app, db
+from .models import Word, Game, Card
 import random
-from services.random_services import random_turn, random_string
-from services.game_rules import new_game, new_card, update_game, change_game_turn, score_count
+from .services.random_services import random_turn, random_string
+from .services.game_rules import new_game, new_card, update_game, change_game_turn, score_count
 
 
 @app.route('/')

@@ -1,6 +1,5 @@
-from config import app
-from models import Word, Game, Card
-import route
+from server import app, route
+
 
 if __name__ == '__main__':
     app.run(debug=True)

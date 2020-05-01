@@ -1,4 +1,4 @@
-from config import db
+from server import db
 from models import Word, Card, Game
 from data.word import word_list
 
