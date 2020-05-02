@@ -22,7 +22,6 @@ const GameForm = () => {
             .then(async res => {
             const result = await res.json()
             if (res.ok){ 
-                console.log(result.gamename)
                 setGameNameCreated(result.gamename)
                 setGameExist(1)
             }
@@ -35,7 +34,6 @@ const GameForm = () => {
             .then(async res => {
             const result = await res.json()
             setGameNameCreated(result.gamename)
-            console.log(result.gamename)
             })
             .catch(e => console.warn('Error: ', e))
     }

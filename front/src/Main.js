@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import {Loader, Grid} from 'semantic-ui-react'
 import {useParams} from "react-router-dom";
+import io from 'socket.io-client'
 
 import './App.scss'
 import Card from './Card'
@@ -11,6 +12,7 @@ import Foot from './Foot'
 
 const init = {'feedback' : 0}
 
+const socket = io('localhost:5000')
  
 const Main = () => {
     const [game, setGame] = useState(init);
@@ -18,16 +20,16 @@ const Main = () => {
     const gameID = useParams();
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            fetch(`/${gameID.id}`)
-            .then(async res => {
-            const result = await res.json()
-            setGame(result)
-            })
-            .catch(e => console.warn('Error: ', e))
-        }, 1000);
-        return () => clearInterval(interval);
-      }, []);
+        const gamename = gameID.id
+        socket.emit('join_game', {gamename })
+        return () => socket.disconnect() ;
+      }, [] );
+    
+    useEffect(() => {
+        socket.on("get_game", data => {
+            setGame(data)
+          });
+      }, [] );
 
     function changeView(view){
         if (view == 'normal'){
@@ -40,49 +42,32 @@ const Main = () => {
 
     function getFeedback(index){
         if (view == 'spymaster'){
-            console.log(game.team[index])
             return game.team[index]
         }
         else {
-            console.log(game.feedback[index])
             return game.feedback[index]
         }
     }
 
-    async function handleCardClick(index){
+    function handleCardClick(index){
         const gamename = game.gamename
         const data = {gamename, index}
-        const response = await fetch('/change_feedback', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(data)
-        })
+        socket.emit('change_feedback', data)
     }
 
-    async function handleNewTurn(){
-        const response = await fetch('/change_turn', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(game)
-        })
+    function handleNewTurn(){
+        const gamename = game.gamename
+        const data = {gamename}
+        socket.emit('change_turn', data)
     }
 
     async function handleNewRound(){
-        const response = await fetch('/create_round', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(game)
-        }).then(async res => {
-            const result = await res.json()
-            view == 'spymaster' && changeView(view)
-            setGame(result)
-            })
+        const gamename = game.gamename
+        const data = {gamename}
+        socket.emit('create_round', data)
+        if (view == 'spymaster'){
+            changeView(view)
+        }
     }
 
     return (

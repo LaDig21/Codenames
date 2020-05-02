@@ -36,7 +36,7 @@ class Game(db.Model):
         word = [c.text.wordname for c in self.card]
         feedback = [c.feedback for c in self.card]
         team = [c.team for c in self.card]
-        return {'gamename' : self.gamename, 'date_created' : self.date_created, 
+        return {'gamename' : self.gamename, 'date_created' : str(self.date_created), 
                 'redscore' : self.redscore, 'bluescore' : self.bluescore, 
                 'redscoretotal' : self.redscoretotal, 'bluescoretotal' : self.bluescoretotal,
                 'turn' : self.turn, 'game_end' : self.game_end, 
